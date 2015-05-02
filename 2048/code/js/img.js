@@ -1,6 +1,6 @@
 //图片
 var Img = (function(){
-	function obj(position,value){
+	function obj(position,value,img){
 		var me = this;
 		me.sPosition = position; //图片开始的位置
 		if(position.x < 0 || position.x > 3)
@@ -15,7 +15,7 @@ var Img = (function(){
 			me.value = 1;
 		else if(value > 11)
 			me.value = 11;
-		me.img = game.images[value - 1];
+		me.img = img;
 	}
 	//按坐标绘制图片
 	obj.prototype.drawByPos = function(){

@@ -42,6 +42,7 @@ handle.derection = function(der){
 	if(flagMove){
 		handle.slide(der);
 	}
+	return flagMove;
 };
 
 /**
@@ -69,7 +70,7 @@ handle.reDrawMap = function(){
 			var _map = gl.map[m][p];
 			_map.flag = false;		
 			if(_map.value > 0){			
-				_map.Img = new Img({x:m,y:p},_map.value);
+				_map.Img = new Img({x:m,y:p},_map.value,game.images[_map.value - 1]);
 				_map.Img.drawByPos();
 			}else{
 				if(_map.Img){
@@ -95,7 +96,7 @@ handle.getNewData = function(value){
 	var _map = gl.map[xx][yy];
 	if(!_map.Img){
 		_map.value = value;
-		_map.Img = new Img({x:xx,y:yy},value);	
+		_map.Img = new Img({x:xx,y:yy},value,game.images[value - 1]);	
 		_map.Img.drawByPos();
 	}else{
 		handle.getNewData(value);
